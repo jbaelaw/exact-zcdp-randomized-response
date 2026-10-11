@@ -1,0 +1,32 @@
+2026-10-11T00:20:10Z
+Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)
+Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)
+Linux x86_64
+✔ [3201/3201] Built ExactZCDP.Base (2.9s)
+Build completed successfully (3201 jobs).
+✔ [3202/3202] Built ExactZCDP.Calculus (7.1s)
+Build completed successfully (3202 jobs).
+✔ [3202/3202] Built ExactZCDP.Mechanism (3.9s)
+Build completed successfully (3202 jobs).
+✔ [3203/3203] Built ExactZCDP.Parameters (4.0s)
+Build completed successfully (3203 jobs).
+✔ [3203/3203] Built ExactZCDP.ShapeBounds (4.0s)
+Build completed successfully (3203 jobs).
+✔ [3204/3204] Built ExactZCDP.Shape (5.1s)
+Build completed successfully (3204 jobs).
+✔ [3202/3202] Built ExactZCDP.RootEquation (3.3s)
+Build completed successfully (3202 jobs).
+✔ [3205/3205] Built ExactZCDP.EndpointLimit (2.9s)
+Build completed successfully (3205 jobs).
+✔ [3202/3202] Built ExactZCDP.BisectionValue (5.2s)
+Build completed successfully (3202 jobs).
+✔ [3207/3207] Built ExactZCDP.Bisection (5.1s)
+Build completed successfully (3207 jobs).
+✔ [3209/3209] Built ExactZCDP.Main (3.7s)
+Build completed successfully (3209 jobs).
+✔ [3212/3212] Built ExactZCDP.Certificates (2.9s)
+Build completed successfully (3212 jobs).
+✔ [3213/3214] Built ExactZCDP (2.7s)
+Build completed successfully (3214 jobs).
+2026-10-11T00:21:32Z
+FULL_PROJECT_BUILD_AND_AXIOM_AUDIT_PASS

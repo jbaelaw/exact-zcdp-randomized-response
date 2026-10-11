@@ -1,0 +1,417 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Exact zCDP for k-Ary Randomized Response},
+  pdfauthor={Ji Ho Bae},pdfsubject={Exact zero-concentrated differential privacy of randomized response}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newcommand{\RR}{\operatorname{RR}}
+\newcommand{\D}{\mathrm{D}}
+\title{Exact zCDP for $k$-Ary Randomized Response}
+\author{Ji Ho Bae\\LawAll AI\\
+\href{mailto:jihobae@snu.ac.kr}{\texttt{jihobae@snu.ac.kr}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We determine the least zero-concentrated differential privacy parameter of
+$k$-ary randomized response for every $k\geq2$ and every privacy parameter
+$\varepsilon\geq0$. The necessary condition for endpoint optimality obtained
+by Harrison and Manurangsi is also sufficient, including the equality case.
+When this condition fails, the normalized R\'enyi-divergence objective has a unique maximizer,
+characterized by a scalar equation with an explicit finite bracket.
+The proof expresses the objective as a secant slope of a function whose
+curvature changes sign at most once. This characterization also yields
+bisection with geometric error bounds for both the maximizing order and the
+optimal zCDP parameter, in exact real arithmetic.
+\end{abstract}
+
+\section{Introduction and preliminaries}
+
+Zero-concentrated differential privacy (zCDP), introduced by Bun and
+Steinke~\cite{BS}, bounds R\'enyi divergence simultaneously at every order
+$\alpha>1$. Determining the least admissible parameter therefore requires a
+global optimization over the order. Harrison and Manurangsi
+determine this parameter for several fundamental mechanisms. For $k$-ary
+randomized response, they establish the endpoint formula for
+$2\leq k\leq6$ and give a necessary condition for this formula to hold for general
+$k$~\cite[Theorem~16 and Lemma~17]{HM}. They also note that their method
+extends to moderate values of $k>6$ under more complicated
+constraints~\cite[footnote~4]{HM}, while leaving a precise
+characterization for large $k$ as an open problem~\cite[Section~7]{HM}.
+We prove that their threshold is exact and characterize the optimum above it
+by a unique root of an explicit scalar equation.
+
+Fix an integer $k\geq2$ and write $[k]=\{1,\ldots,k\}$. For
+$\varepsilon\geq0$, the mechanism $\RR_{k,\varepsilon}$ takes values in
+$[k]$ and has output law $P_i$ on input $i$, where
+\[
+ P_i(j)=\Pr[\RR_{k,\varepsilon}(i)=j]
+ =\begin{cases}
+ e^\varepsilon/(e^\varepsilon+k-1),&j=i,\\
+ 1/(e^\varepsilon+k-1),&j\ne i.
+ \end{cases}
+\]
+Every pair of distinct inputs is adjacent. For positive probability mass
+functions $P,Q$ on $[k]$ and $\alpha>1$, the R\'enyi divergence is
+\[
+ \D_\alpha(P\Vert Q)
+ =\frac{1}{\alpha-1}\log\sum_{j=1}^k
+ P(j)^\alpha Q(j)^{1-\alpha}.
+\]
+The mechanism is $\rho$-zCDP, for $\rho\geq0$, if
+\[
+ \D_\alpha(P_i\Vert P_j)\leq\rho\alpha
+ \qquad(i,j\in[k],\ \alpha>1).
+\]
+Let $\rho_*(k,\varepsilon)$ denote the least such $\rho$, and set
+$q(\alpha)=\D_\alpha(P_1\Vert P_2)/\alpha$. All logarithms are natural.
+
+For $Y\sim P_1$, define the privacy loss
+$L=\log(P_1(Y)/P_2(Y))$ and its cumulant generating function
+$\Lambda(s)=\log\mathbb{E}[e^{sL}]$. The variable $L$ has at most three
+mass points. Atouani, Marchal, and Arbel~\cite{AMA} study optimal
+sub-Gaussian variance proxies for three-mass distributions. For centered
+privacy loss, this proxy is
+$\sup_{s\ne0}2[\Lambda(s)-s\Lambda'(0)]/s^2$, whereas the least zCDP
+parameter is $\sup_{s>0}\Lambda(s)/[s(s+1)]$. The latter leads to a
+secant-slope problem with a positive base point.
+
+\section{The exact parameter}
+
+\begin{theorem}\label{thm:main}
+For every integer $k\geq2$, $\rho_*(k,0)=0$. For $\varepsilon>0$, put
+\[
+ a=\frac{\varepsilon}{2},\qquad
+ c=\frac{k-2}{2e^a},\qquad
+ K(\varepsilon)=
+ \frac{2(e^\varepsilon-1)(e^\varepsilon-1-\varepsilon)}
+ {\varepsilon(e^\varepsilon+1)-2e^\varepsilon+2}.
+\]
+The denominator defining $K(\varepsilon)$ is strictly positive, and the
+following alternatives hold.
+\begin{enumerate}
+\item If $k\leq K(\varepsilon)$, including equality, then
+\begin{equation}\label{eq:endpoint}
+ \rho_*(k,\varepsilon)=
+ \frac{\varepsilon(e^\varepsilon-1)}{e^\varepsilon+k-1}.
+\end{equation}
+The function $q$ is strictly decreasing on $(1,\infty)$, and its supremum
+is its limit as $\alpha\downarrow1$.
+\item If $k>K(\varepsilon)$, the equation
+\begin{equation}\label{eq:root}
+ (x^2-a^2)\sinh x
+ =2x(c+\cosh x)
+ \log\frac{c+\cosh x}{c+\cosh a}
+\end{equation}
+has exactly one solution $x_*$ in the domain $x>a$. In this case
+\begin{equation}\label{eq:interior}
+ \rho_*(k,\varepsilon)=
+ \frac{\varepsilon^2\sinh x_*}{2x_*(c+\cosh x_*)},
+ \qquad
+ \alpha_*=\frac12+\frac{x_*}{\varepsilon}
+\end{equation}
+and $\alpha_*>1$ is the unique maximizer of $q$. Moreover,
+\begin{equation}\label{eq:bracket}
+ a<x_*<U:=2\log\bigl(2(c+\cosh a)\bigr)
+       =2\log(k-1+e^\varepsilon)-\varepsilon.
+\end{equation}
+\end{enumerate}
+For every $\varepsilon\geq0$ and $\rho\geq0$, the mechanism
+$\RR_{k,\varepsilon}$ is $\rho$-zCDP if and only if
+$\rho\geq\rho_*(k,\varepsilon)$.
+\end{theorem}
+
+The threshold $K$ is due to Harrison and Manurangsi~\cite[Lemma~17]{HM}.
+The endpoint $x=a$ also satisfies~\eqref{eq:root},
+but lies outside the domain $x>a$.
+
+\section{Proof of the characterization}
+
+If $\varepsilon=0$, every output law is uniform, so all the divergences
+vanish. Henceforth assume $\varepsilon>0$.
+
+For any distinct inputs $i,j$, only the probabilities of symbols $i$ and $j$
+differ. Substituting their values gives
+\begin{equation}\label{eq:renyi}
+ \D_\alpha(P_i\Vert P_j)
+ =\frac{1}{\alpha-1}
+ \log\frac{e^{\alpha\varepsilon}+e^{(1-\alpha)\varepsilon}+k-2}
+ {e^\varepsilon+k-1}.
+\end{equation}
+This is the expression in~\cite[Proposition~20]{HM}. It is independent of
+the ordered pair of distinct inputs; equal inputs have divergence zero.
+Consequently
+\begin{equation}\label{eq:sup}
+ \rho_* =\sup_{\alpha>1}q(\alpha).
+\end{equation}
+
+Set
+\[
+ x=\varepsilon\left(\alpha-\frac12\right)>a,
+ \qquad h(x)=\log(c+\cosh x),
+ \qquad t=x^2,\quad t_0=a^2,
+\]
+and define
+\[
+ f(t)=h(\sqrt t)\quad(t>0),\qquad
+ S(t)=\frac{f(t)-f(t_0)}{t-t_0}\quad(t>t_0).
+\]
+The numerator and denominator inside the logarithm
+in~\eqref{eq:renyi} are $2e^a(c+\cosh x)$ and
+$2e^a(c+\cosh a)$, respectively. Since
+$\alpha(\alpha-1)=(x^2-a^2)/\varepsilon^2$, we obtain
+\begin{equation}\label{eq:secant}
+ q(\alpha)=\varepsilon^2 S(t),\qquad
+ \rho_* =\varepsilon^2\sup_{t>t_0}S(t).
+\end{equation}
+
+The curvature pattern below is equivalent, under $u=\sinh x$, to the
+monotonicity result of Guo, Luo, and Qi~\cite[Theorem~1]{GLQ}.
+
+\begin{lemma}[Curvature]\label{lem:curvature}
+For $c\geq0$, define
+\[
+ g(x)=x(1+c\cosh x)-\sinh x(c+\cosh x),\qquad x\geq0.
+\]
+For $x>0$,
+\begin{equation}\label{eq:derivatives}
+ f'(x^2)=\frac{\sinh x}{2x(c+\cosh x)},\qquad
+ f''(x^2)=\frac{g(x)}{4x^3(c+\cosh x)^2}.
+\end{equation}
+If $c\leq2$, then $g(x)<0$ for all $x>0$. If $c>2$, there is a unique
+$b>0$ such that $g(b)=0$, with $g>0$ on $(0,b)$ and $g<0$ on $(b,\infty)$.
+\end{lemma}
+\begin{proof}
+Differentiation gives~\eqref{eq:derivatives} and
+\begin{equation}\label{eq:gprime}
+ g'(x)=\sinh x\bigl(cx-2\sinh x\bigr).
+\end{equation}
+The function $\sinh x/x$ increases strictly from $1$ to infinity on
+$(0,\infty)$: its derivative has the sign of $x\cosh x-\sinh x$, which
+vanishes at zero and has derivative $x\sinh x>0$.
+
+For $c\leq2$, equation~\eqref{eq:gprime} gives $g'<0$ on $(0,\infty)$;
+as $g(0)=0$, this proves the first case. For $c>2$, there is a unique
+$r>0$ with $2\sinh r/r=c$. Thus $g$ increases strictly on $(0,r)$ and
+decreases strictly on $(r,\infty)$, with $g(r)>0$. Finally,
+\[
+ \lim_{x\to\infty}e^{-2x}g(x)=-\frac14.
+\]
+It follows that $g$ has exactly one positive zero $b>r$, with the stated
+signs.
+\end{proof}
+
+The interior-maximum argument below is an instance of Yang's
+l'Hospital-type monotonicity rule~\cite[Theorem~8]{Yang}; the direct proof
+also provides the explicit bracket $U$.
+
+\begin{lemma}[Secant slopes]\label{lem:shape}
+If $g(a)\leq0$, then $S$ is strictly decreasing on $(t_0,\infty)$.
+If $g(a)>0$, then $S$ increases strictly up to a unique
+$t_*>t_0$ and decreases strictly thereafter. In the latter case
+$c>2$, $a<b<\sqrt{t_*}<U$, and $t_*$ is the unique zero in $(t_0,\infty)$ of
+\begin{equation}\label{eq:J}
+ J(t)=(t-t_0)f'(t)-f(t)+f(t_0).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The function $J$ extends to $t_0$ with $J(t_0)=0$, and
+\[
+ S'(t)=\frac{J(t)}{(t-t_0)^2},\qquad
+ J'(t)=(t-t_0)f''(t).
+\]
+If $g(a)\leq0$, Lemma~\ref{lem:curvature} implies $g(x)<0$ for every
+$x>a$, including when $g(a)=0$. Hence $J'<0$ on $(t_0,\infty)$, so
+$J<0$ and $S'<0$ there.
+
+If $g(a)>0$, the same lemma gives $c>2$ and $a<b$. The function $J$
+increases strictly on $(t_0,b^2)$ and decreases strictly on
+$(b^2,\infty)$; in particular, $J(b^2)>0$. Put
+$C=\log(2(c+\cosh a))$, so $U=2C$. Since
+$2(c+\cosh a)>e^a$, we have $C>a>0$. For $x\geq a$, the inequalities
+$h'(x)\leq1$ and $h(x)\geq x-\log2$ give
+\[
+ J(x^2)=\frac{x^2-a^2}{2x}h'(x)-h(x)+h(a)
+ \leq-\frac{x}{2}-\frac{a^2}{2x}+C.
+\]
+Thus $J(U^2)\leq-a^2/(4C)<0$. The monotonicity of $J$ now gives exactly
+one zero $t_*\in(b^2,U^2)$, with $J>0$ on $(t_0,t_*)$ and $J<0$ on
+$(t_*,\infty)$. The formula for $S'$ proves the assertion.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+To identify the threshold, write
+\[
+ A=a\cosh a-\sinh a,\qquad B=\sinh a\cosh a-a.
+\]
+Both are strictly positive for $a>0$, since they vanish at zero and have
+derivatives $a\sinh a$ and $2\sinh^2a$, respectively. As $g(a)=cA-B$,
+\begin{align*}
+ g(a)\leq0
+ &\iff c\leq B/A\\
+ &\iff k\leq2+2e^a\frac{\sinh a\cosh a-a}{a\cosh a-\sinh a}\\
+ &\iff k\leq
+ \frac{2(e^{2a}-1)(e^{2a}-1-2a)}
+ {2a(e^{2a}+1)-2e^{2a}+2}=K(\varepsilon).
+\end{align*}
+The denominator is $4e^aA>0$. Thus this equivalence also includes equality.
+
+If $k\leq K(\varepsilon)$, Lemma~\ref{lem:shape}
+and~\eqref{eq:secant} give
+\[
+ \rho_* =\varepsilon^2 f'(a^2)
+ =\frac{\varepsilon^2\sinh a}{2a(c+\cosh a)}
+ =\frac{\varepsilon(e^\varepsilon-1)}{e^\varepsilon+k-1}.
+\]
+Both changes of variable are strictly increasing, so $q$ is strictly
+decreasing and its supremum is approached as $\alpha\downarrow1$.
+
+If $k>K(\varepsilon)$, let $x_*=\sqrt{t_*}$, where $t_*$ is supplied by
+Lemma~\ref{lem:shape}. Multiplying $J(t_*)=0$ by
+$2x_*(c+\cosh x_*)$ gives~\eqref{eq:root}; the lemma proves uniqueness
+on $x>a$ and the bracket~\eqref{eq:bracket}. Moreover,
+\[
+ \sup_{t>t_0}S(t)=S(t_*)=f'(t_*),
+\]
+which proves~\eqref{eq:interior} and uniqueness of the maximizing order.
+
+Finally, equation~\eqref{eq:sup} shows that every $\rho\geq\rho_*$
+satisfies all the zCDP inequalities. If $\rho<\rho_*$, an inequality for
+distinct inputs fails at $\alpha_*$ in the interior regime, or at an order
+sufficiently close to $1$ in the endpoint regime. Together with the
+$\varepsilon=0$ case, this proves the stated equivalence.
+\end{proof}
+
+\section{Computation}
+
+Throughout this section, assume $\varepsilon>0$ and $k>K(\varepsilon)$.
+Define, for
+$x\geq a$,
+\begin{equation}\label{eq:F}
+ F(x)=\frac{x^2-a^2}{2x}\frac{\sinh x}{c+\cosh x}
+       -\log\frac{c+\cosh x}{c+\cosh a}=J(x^2).
+\end{equation}
+Lemma~\ref{lem:shape} gives
+\begin{equation}\label{eq:Fsign}
+ F(x)>0\quad(a<x<x_*),\qquad
+ F(x_*)=0,\qquad F(x)<0\quad(x>x_*).
+\end{equation}
+This sign pattern permits bisection from $(a,U)$, despite the additional
+zero $F(a)=0$ at the excluded endpoint.
+
+\begin{corollary}\label{cor:bisection}
+Assume $\varepsilon>0$ and $k>K(\varepsilon)$. Set $L_0=a$, $R_0=U$,
+and $m_n=(L_n+R_n)/2$. If $F(m_n)>0$, set
+$(L_{n+1},R_{n+1})=(m_n,R_n)$; if $F(m_n)<0$, set
+$(L_{n+1},R_{n+1})=(L_n,m_n)$; if $F(m_n)=0$, terminate with $x_*=m_n$.
+Before exact termination,
+\[
+ L_n<x_*<R_n,\qquad R_n-L_n=(U-a)2^{-n}.
+\]
+The corresponding enclosure for $\alpha_*$ is
+$\bigl(\tfrac12+L_n/\varepsilon,\tfrac12+R_n/\varepsilon\bigr)$.
+The quantities
+\begin{equation}\label{eq:valueinterval}
+ \ell_n=\frac{\varepsilon^2 h'(L_n)}{2R_n},\qquad
+ u_n=\frac{\varepsilon^2 h'(R_n)}{2L_n}
+\end{equation}
+satisfy $\ell_n\leq\rho_*\leq u_n$, converge to $\rho_*$, and obey
+\begin{equation}\label{eq:error}
+ u_n-\ell_n\leq(\varepsilon+2)(U-a)2^{-n}.
+\end{equation}
+Thus an enclosure of width at most $\delta>0$ is obtained within
+\[
+ \max\left\{0,\left\lceil
+ \log_2\frac{(\varepsilon+2)(U-a)}{\delta}
+ \right\rceil\right\}
+\]
+bisection steps, or the exact root is found earlier.
+\end{corollary}
+\begin{proof}
+The bracket invariant follows from~\eqref{eq:Fsign}. Differentiation gives
+\[
+ h''(x)=\frac{1+c\cosh x}{(c+\cosh x)^2}>0.
+\]
+Thus $h'$ is increasing, and $L_n\leq x_*\leq R_n$
+together with~\eqref{eq:interior} gives $\ell_n\leq\rho_*\leq u_n$.
+The shrinking bracket and continuity give convergence.
+
+For $x>0$, we have $0\leq h'(x)\leq1$ and $h''(x)\leq1$, the latter
+following from
+\[
+ (c+\cosh x)^2-(1+c\cosh x)
+ =c^2+c\cosh x+\sinh^2x\geq0.
+\]
+Writing $L=L_n$, $R=R_n$, and $w=R-L$, we therefore have
+\begin{align*}
+ u_n-\ell_n
+ &=\frac{\varepsilon^2}{2}
+ \left(\frac{h'(R)-h'(L)}{L}
+       +h'(L)\left(\frac1L-\frac1R\right)\right)\\
+ &\leq\frac{\varepsilon^2}{2}
+ \left(\frac{w}{a}+\frac{w}{a^2}\right)
+ =(\varepsilon+2)w.
+\end{align*}
+Substituting $w=(U-a)2^{-n}$ proves~\eqref{eq:error} and the iteration
+bound.
+\end{proof}
+
+Corollary~\ref{cor:bisection} assumes exact evaluation of elementary real
+functions and exact sign comparisons; its iteration bound is not
+a bit-complexity bound. A rigorous numerical implementation
+must also control rounding in the threshold comparison, the sign tests,
+and the value enclosure.
+
+\section*{AI use disclosure}
+
+The author used AI tools (GPT-6 Astra Max and Opus 5.5 Max) for code review,
+assistance with manuscript translation, and the development of counterexamples.
+The author takes full responsibility for the code, the original manuscript,
+the final translation, and all other related outputs.
+
+\begin{thebibliography}{9}
+\bibitem{AMA}
+Soufiane Atouani, Olivier Marchal, and Julyan Arbel.
+\newblock Optimal sub-Gaussian variance proxy for 3-mass distributions.
+\newblock arXiv:2510.06132v1, 2025.
+\newblock \url{https://arxiv.org/abs/2510.06132v1}.
+
+\bibitem{BS}
+Mark Bun and Thomas Steinke.
+\newblock Concentrated Differential Privacy: Simplifications, Extensions,
+and Lower Bounds.
+\newblock In \emph{Theory of Cryptography (TCC 2016-B), Part I},
+LNCS 9985, pages 635--658, 2016.
+\newblock \href{https://doi.org/10.1007/978-3-662-53641-4_24}
+{doi:10.1007/978-3-662-53641-4\_24}.
+\newblock Full version: \url{https://arxiv.org/abs/1605.02065v1}.
+
+\bibitem{GLQ}
+Bai-Ni Guo, Qiu-Ming Luo, and Feng Qi.
+\newblock Monotonicity results and inequalities for the inverse hyperbolic
+sine function.
+\newblock \emph{Journal of Inequalities and Applications}, 2013:536, 2013.
+\newblock \href{https://doi.org/10.1186/1029-242X-2013-536}
+{doi:10.1186/1029-242X-2013-536}.
+
+\bibitem{HM}
+Charlie Harrison and Pasin Manurangsi.
+\newblock Exact zCDP Characterizations for Fundamental Differentially
+Private Mechanisms.
+\newblock In \emph{7th Symposium on Foundations of Responsible Computing
+(FORC 2026)}, LIPIcs 368, Article 3, pages 3:1--3:18, 2026.
+\newblock \href{https://doi.org/10.4230/LIPIcs.FORC.2026.3}
+{doi:10.4230/LIPIcs.FORC.2026.3}.
+
+\bibitem{Yang}
+Zhen-Hang Yang.
+\newblock A new way to prove L'Hospital Monotone Rules with applications.
+\newblock arXiv:1409.6408v1, 2014.
+\newblock \url{https://arxiv.org/abs/1409.6408v1}.
+\end{thebibliography}
+\end{document}

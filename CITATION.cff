@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying paper when using this formalization."
+title: "Exact zCDP for k-Ary Randomized Response: Lean Formalization"
+version: 1.0.0
+date-released: 2026-10-11
+repository-code: "https://github.com/jbaelaw/exact-zcdp-randomized-response"
+authors:
+  - family-names: Bae
+    given-names: Ji Ho
+    affiliation: LawAll AI
+    email: jihobae@snu.ac.kr
+preferred-citation:
+  type: article
+  title: "Exact zCDP for k-Ary Randomized Response"
+  authors:
+    - family-names: Bae
+      given-names: Ji Ho
+      affiliation: LawAll AI
+  year: 2026
+  doi: 10.5281/zenodo.23288478

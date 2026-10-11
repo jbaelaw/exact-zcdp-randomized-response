@@ -1,0 +1,613 @@
+{
+  "status": "verified",
+  "scope": "Full all-k,epsilon main theorem and exact-real-arithmetic bisection corollary",
+  "completed_at_KST": "2026-10-11T09:21:32+09:00",
+  "paper_DOI": "10.5281/zenodo.23288478",
+  "build_exit_code": 0,
+  "project_build_outputs_removed_before_final_build": true,
+  "pinned_mathlib_dependency_cache_reused": true,
+  "warning_count": 0,
+  "error_count": 0,
+  "public_theorems_audited": 114,
+  "axioms_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "additional_axioms": [],
+  "placeholder_scan_hits": [],
+  "local_remote_source_hashes_identical": true,
+  "source_sha256": {
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "lakefile.lean": "fd05296d94a67102adbe391f08a7d521879a8a7d70a20fbc16a11fe5b1cfb584",
+    "lake-manifest.json": "ce70955418e7ab5193c4b205d3b9d3ba5124b7e72545f2ffc0c6e44b1e279589",
+    "ExactZCDP.lean": "fe6e9a3259e86eb08d1dac889cfbf02e300b128ff6adf083780f3d4a0a271c31",
+    "ExactZCDP/Base.lean": "dcaa1376f5e5376b9cbb0bba2f026c0312182902b9c3b9cb49cb950d4c2c6502",
+    "ExactZCDP/Bisection.lean": "38c525db494222ae5a12beb20387718277287e7c4cd20af91f84fdad62e13678",
+    "ExactZCDP/BisectionValue.lean": "2b853674a8fae9d67ec1a531d69cd5c157dab1edf074923b96a91ad56ec07ab7",
+    "ExactZCDP/Calculus.lean": "d6f637a6add79f24410f36246f0d567aefa0dec1c750a9db93387d69c3f4165f",
+    "ExactZCDP/Certificates.lean": "c66500954c5220a8fbc0ad9b52b5b66cba5ad1ec85f2dd4d32a61dac9e7b54e7",
+    "ExactZCDP/EndpointLimit.lean": "be5cb72848e30cbc7fe8d77f0316d6b285fa2f312addc147ef2372a4ca723423",
+    "ExactZCDP/Main.lean": "f50346c4123a1b472531044db0d447b271859a0156e2d48ca83eb3de6119ce78",
+    "ExactZCDP/Mechanism.lean": "dfe9dc0f13f18a7e5844f9aa5fbb7ca08ab9f8dc8785b6708bc29b07033a2c8b",
+    "ExactZCDP/Parameters.lean": "fadebff11a95e2b3cacebea851bb9408c6d7c20feca18ea3fa736ad436b4c713",
+    "ExactZCDP/RootEquation.lean": "3728797c15c63cae142e852a830c4e537488336854b2c8ab9b897e77960e8a5d",
+    "ExactZCDP/Shape.lean": "fae90e32f402a5ef4ddcc7040f844598e5e011c1c0ef3ecc19d2d0572fda35fd",
+    "ExactZCDP/ShapeBounds.lean": "ed1a874f14ab1871a517ed6cba912a0e47c40809cd567092f32277f4c222560b",
+    "verification/Audit.lean": "f718fc7b37b5e6740dc98b6a19b923c18135bc161bd6b01d44b98fb937417d4a",
+    "verification/full_build.sh": "3874740611fb85338a3c9f1f0bf282ae9047a0b80381082ee75f1d15302bb098"
+  },
+  "theorem_axioms": {
+    "ExactZCDP.bisect_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisect_bracket": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisect_width_before_hit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisectionSteps_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.geometric_enclosure_tendsto": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hp_div_eq_d": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisection_enclosure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisection_order_before_hit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisection_convergence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisection_iteration_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisection_corollary": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisection_value_enclosure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.bisection_value_width": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.denom_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hasDerivAt_h": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hasDerivAt_hp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hasDerivAt_g": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hasDerivAt_d": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hasDerivAt_F": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.sq_sub_sq_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hasDerivAt_Q": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.continuous_h": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.continuous_hp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.continuous_g": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.continuousOn_d": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.continuousOn_F": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.continuousOn_Q": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hp_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hp_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hp_deriv_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hp_deriv_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.monotone_hp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hasDerivAt_x_cosh_sub_sinh": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.x_cosh_sub_sinh_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.strictMonoOn_sinh_div": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.hp_sub_le_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.g_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.g_deriv_neg_of_nonpos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.g_nonpos_persists_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.g_neg_of_c_le_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exact_bisection_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exact_bisection_converges": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exact_bisection_iteration_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_profile_limit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.profile_bound_iff_Q": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_zCDP_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_profile_strictAnti": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interior_zCDP_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interior_unique_root": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interior_profile_maximum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interiorPoint_spec": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exactParameter_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.isZCDP_iff_exact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exactParameter_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exactParameter_isZCDP": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exactParameter_endpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exactParameter_interior": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interior_characterization": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_lt_exactParameter": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_formula_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exactParameter_isLeast": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.rrProb_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.rrProb_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.rr_moment_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.renyi_rr_self": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.renyi_rr_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.isZCDP_iff_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.rrProb_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.renyi_rr_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.isZCDP_zero_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.paramA_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.paramC_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.normalizer_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exp_paramA_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exp_paramA_cosh": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exp_paramA_sinh": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.threshold_denominator_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.threshold_gap_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.threshold_denominator_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.g_param_nonpos_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.g_param_pos_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.normalizer_eq_hyperbolic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.param_hyperbolic_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_identity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.pointOrder_orderPoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.orderPoint_pointOrder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.orderPoint_gt_paramA_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.pointOrder_gt_one_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.orderPoint_strictMono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.pointOrder_strictMono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.orderPoint_sq_sub": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.profile_numerator_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.profile_eq_Q": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.U_parameters": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.F_eq_zero_iff_rootEquation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.F_at_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_F_strictAnti": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_F_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_Q_strictAnti": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.endpoint_Q_bound_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.Q_eq_d_of_F_eq_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.c_gt_two_of_g_pos": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interior_shape": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interior_Q_bound_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.interior_endpoint_lt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.exp_lt_two_denom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.log_two_denom_gt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.h_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.U_gt": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.d_nonneg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.two_mul_mul_d_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.F_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.F_U_neg": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExactZCDP.tendsto_Q_right": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_review": "Independent read-only review found no changed problem, missing parameter regime, or circular premises."
+}
